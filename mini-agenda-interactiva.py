@@ -39,6 +39,20 @@ lista_tareas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
 scrollbar.config(command=lista_tareas.yview)
 
+def guardar_tarea():
+    seleccion = lista_tareas.curselection()
+    if seleccion:
+        tarea = lista_tareas.get(seleccion)
+        print(f"Tarea guardada: {tarea}")
+        tk.messagebox.showinfo("Tarea Guardada", f"Tarea guardada:\n{tarea}")
+    else:
+        tk.messagebox.showwarning("Sin selección", "Seleccione una tarea para guardar.")
 
+boton_guardar = tk.Button(ventana, text="Guardar tarea", bg="#4CAF50", fg="white",
+                          font=('Arial', 10, 'bold'), command=guardar_tarea)
+boton_guardar.pack(pady=10)
+
+nombre_autor = tk.Label(ventana, text="© Fernando E. Peró", font=('Arial', 8), bg='#f0f0f0', anchor='se')
+nombre_autor.pack(side='right', padx=10, pady=5)
 
 ventana.mainloop()
