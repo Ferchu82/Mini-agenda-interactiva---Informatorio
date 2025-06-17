@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 import time
 
 ventana = tk.Tk()
@@ -44,9 +45,9 @@ def guardar_tarea():
     if seleccion:
         tarea = lista_tareas.get(seleccion)
         print(f"Tarea guardada: {tarea}")
-        tk.messagebox.showinfo("Tarea Guardada", f"Tarea guardada:\n{tarea}")
+        messagebox.showinfo("Tarea Guardada", f"Tarea guardada:\n{tarea}")
     else:
-        tk.messagebox.showwarning("Sin selección", "Seleccione una tarea para guardar.")
+        messagebox.showwarning("Sin selección", "Seleccione una tarea para guardar.")
 
 boton_guardar = tk.Button(ventana, text="Guardar tarea", bg="#4CAF50", fg="white",
                           font=('Arial', 10, 'bold'), command=guardar_tarea)
