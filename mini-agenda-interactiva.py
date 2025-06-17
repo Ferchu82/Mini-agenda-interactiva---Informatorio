@@ -26,6 +26,19 @@ reloj = tk.Label(ventana, font=("Arial", 24), fg="white", bg="black")
 reloj.pack(pady=10)
 actualizar_hora()
 
+marco_lista = tk.Frame(ventana)
+marco_lista.pack(padx=10, pady=10, fill='both', expand=True)
+
+scrollbar = tk.Scrollbar(marco_lista)
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+lista_tareas = tk.Listbox(marco_lista, yscrollcommand=scrollbar.set, height=10, font=('Arial', 10))
+for i in range(1, 21):
+    lista_tareas.insert(tk.END, f'Tarea {i}')
+lista_tareas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+scrollbar.config(command=lista_tareas.yview)
+
 
 
 ventana.mainloop()
