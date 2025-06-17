@@ -17,6 +17,15 @@ menu_principal.add_cascade(label="Tareas", menu=submenu)
 submenu.add_command(label="Agregar nueva")
 submenu.add_command(label="Eliminar tarea")
 
+def actualizar_hora():
+    hora_actual = time.strftime("%H:%M:%S")
+    reloj.config(text=hora_actual)
+    ventana.after(1000, actualizar_hora)
+
+reloj = tk.Label(ventana, font=("Arial", 24), fg="white", bg="black")
+reloj.pack(pady=10)
+actualizar_hora()
+
 
 
 ventana.mainloop()
